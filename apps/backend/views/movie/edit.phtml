@@ -1,0 +1,114 @@
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Create Items Form <a href="/multiple/admin/category/" class="btn btn-success"><span class="fa fa-reply"></span> Undo</a>
+        </div>
+        <div class="panel-body">
+            <form role="form" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <?php
+                if($this->flashSession->output()){
+                    ?>
+                    <div class="alert alert-danger"><?php echo $this->flashSession->output(); ?></div>
+                    <?php
+                }
+                ?>
+
+                <div class="col-lg-6">
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Name Movie" 
+                            value="<?php echo $name_movie; ?>" maxlength="100" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Category_id</label>
+                            <select class="form-control" name="category_id" id="" required>
+                                <option selected value="">-- Choose Catalog_ID--</option>
+                                <?php foreach ($catalog as $cat): ?>
+                                    <option <?php echo ($cat->id == $catalog_id) ? 'selected' : ''; ?> value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Price/Ticket</label><br>
+                            <input name="price" class="form-control" value="<?php echo $price;  ?>" placeholder="Create Price The Movie" type="number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Adult</label><br>
+                            <select class="form-control" name="adults" id="" required>
+                                <option selected value="">-- Choose Adult--</option>
+                                <?php foreach ($option_adult as $key => $value) : ?>
+                                    <option <?php echo ($key == $adult) ? 'selected' : ''; ?> value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                                <?php endforeach; ?>
+                                
+                                
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Image</label><br>
+                            <input name="image" width="100" height="100" class="form-control" value="" type="file">
+                            
+                            <img src="<?php echo '/multiple/public/images/movies/'.$image; ?>" width="100" height="100" alt="Ảnh Phim <?php echo $name_movie; ?> "/>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label><br>
+                            <textarea align="left" required name="description" maxlength="500" class="form-control" id="" cols="40" rows="">
+                                <?php echo $description; ?>
+                            </textarea>
+                        </div>
+
+
+                </div>
+                <div class="col-lg-6">
+
+                    <div class="form-group">
+                        <label>Premiere</label>
+                        <input type="date" placeholder="Determined for Movie" class="form-control" name="premiere" value="<?php echo $premiere; ?>" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Close_date_movie</label>
+                        <input type="date" placeholder="Close for Movie" class="form-control" name="close_date" value="<?php echo $close_date; ?>" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Director</label>
+                        <input type="text" placeholder="Who are Director ???" class="form-control" name="director" value="<?php echo $director ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Type_Movie</label>
+                        <input type="text" placeholder="Who type Movie ???" class="form-control" name="type_movie" value="<?php echo $type_movie ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Time</label>
+                        <input type="text" placeholder="How long the Movie ???" class="form-control" name="time" value="<?php echo $time; ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Actor</label>
+                        <textarea name="actor" placeholder="Who are Actors ???" class="form-control" id="" cols="40" rows="" required>
+                            <?php echo $actor; ?>
+                        </textarea>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-info">Go to Show time</button>
+                    <button type="reset" class="btn btn-warning">Reset</button>
+                </div>
+
+
+            </div>
+            </form>
+            <!-- /.row (nested) -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+
+
+
+

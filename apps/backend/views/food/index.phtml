@@ -1,0 +1,74 @@
+
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        DataTables Catalog Tables
+                        <a href="/multiple/admin/food/new" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> New</a>
+                        <a href="/multiple/admin/category/deleteAll" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete All</a>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <?php
+                        if($this->flashSession->output()){
+                            ?>
+                            <div class="alert alert-success"><?php echo $this->flashSession->output(); ?></div>
+                            <?php
+                        }
+                        ?>
+                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                            <tr>
+                                <th><input type="checkbox" name="checkall[]"></th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Create_time</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($page->items as $item): ?>
+                                    <tr class="odd gradeX">
+                                    <td><input type="checkbox" name="check[]" value="<?php echo $item->id; ?>"></td>
+                                    <td><?php echo $item->id; ?></td>
+                                    <td><?php echo $item->name; ?></td>
+                                    <td><?php echo $item->status; ?></td>
+                                    <td class="center"><?php echo $item->create_time; ?></td>
+                                    <td class="center">
+                                        <a href="/multiple/admin/food/edit?id=<?php echo $item->id ?>" 
+                                           class="btn btn-info" data-toggle="tooltip" title="Edit">
+                                            <span class="glyphicon glyphicon-edit"></span> Edit
+                                        </a>
+                                        <a href="/multiple/admin/food/view?id=<?php echo $item->id; ?>"
+                                           class="btn btn-warning" data-toggle="tooltip" title="Description" >
+                                            <span class="glyphicon glyphicon-edit"></span>View</a>
+                                        <a href="/multiple/admin/food/delete?id=<?php echo $item->id ?>" 
+                                           class="btn btn-danger" data-toggle="tooltip" title="Delete" >
+                                            <span class="glyphicon glyphicon-trash"></span>Delete</a>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                        <!-- /.table-responsive -->
+                            <nav aria-label="...">
+                                <ul class="pager">
+                                    <li <?php echo ($page->current == 1) ? 'class="disabled"' : ''; ?>><a href="/multiple/admin/food/index?page=1">First</a></li>
+                                    <li <?php echo ($page->current == 1) ? 'class="disabled"' : ''; ?>><a href="/multiple/admin/food/index?page=<?= $page->before; ?>">Previous</a></li>
+                                    <?php echo "You are in page ", $page->current, " of ", $page->total_pages; ?>
+                                    <li <?php echo ($page->current == $page->total_pages) ? 'class="disabled"' : ''; ?>><a href="/multiple/admin/food/index?page=<?= $page->next; ?>">Next</a></li>
+                                    <li <?php echo ($page->current == $page->total_pages) ? 'class="disabled"' : ''; ?>><a href="/multiple/admin/food/index?page=<?= $page->last; ?>">Last</a></li>
+                                </ul>
+                            </nav>
+
+
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+
+
+
+
+

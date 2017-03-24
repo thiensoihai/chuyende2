@@ -1,0 +1,69 @@
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            View Items Form <a href="/multiple/admin/food/" class="btn btn-success"><span class="fa fa-reply"></span> Undo</a>
+        </div>
+        <div class="panel-body">
+            <form role="form" method="post">
+                <div class="row">
+                    <?php
+                    if($this->flash->output()){
+                        ?>
+                        <div class="alert alert-danger"><?php echo $this->flash->output(); ?></div>
+                        <?php
+                    }
+                    ?>
+                    <?php foreach ($query as $qr): ?>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Name Food" value="<?php echo $qr->name;?>">
+                            <p></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select class="form-control" name="status" id="">
+                                <option selected value="">-- Choose Status--</option>
+                                <?php for($i = 0 ; $i < 2; $i++): ?>
+                                    <option <?php echo ($i == $qr->status) ? 'selected' : ''; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                <?php endfor; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Creare Time</label>
+                            <input type="text" class="form-control" name="name" placeholder="Name Food" value="<?php echo $qr->create_time;?>">
+                            <p></p>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                    <div class="col-lg-6">
+                        <?php //foreach ($food as $f): ?>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="number" class="form-control" name="price" placeholder="Price" value="<?php echo !empty($food->price) ? $food->price: ''; ?>">
+                            <p></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Desciprtion</label>
+                            <input type="text" class="form-control" name="description" placeholder="Description" value="<?php echo !empty($food->description) ? $food->description: ''; ?>">
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Number</label>
+                            <input type="number" class="form-control" name="number" placeholder="Number" value="<?php echo !empty($food->number) ? $food->number: ''; ?>">
+                        </div>
+                        <?php //endforeach; ?>
+                    </div>
+
+                </div>
+            </form>
+            <!-- /.row (nested) -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+
+
+
+

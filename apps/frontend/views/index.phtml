@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cinema Theater Website Template</title>
+    <link rel="stylesheet" href="<?php echo PUBLIC_PATH; ?>/css/style.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo PUBLIC_PATH; ?>/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo PUBLIC_PATH; ?>/vendor/">
+</head>
+<body>
+<div id="header">
+    <?php require_once 'header.phtml';   ?>
+</div>
+<div id="body" class="home">
+    <div>
+        <?php echo $this->getContent(); ?>
+    </div>
+
+</div>
+<div id="footer">
+<?php require_once 'footer.phtml'; ?>
+</div>
+</body>
+</html>

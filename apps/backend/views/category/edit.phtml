@@ -1,0 +1,54 @@
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Create Items Form <a href="/multiple/admin/category/" class="btn btn-success"><span class="fa fa-reply"></span> Undo</a>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <?php
+                if($this->flashSession->output()){
+                    ?>
+                    <div class="error"><?php echo $this->flashSession->output(); ?></div>
+                    <?php
+                }
+                ?>
+
+                <div class="col-lg-6">
+                    <?php foreach ($query as $qr): ?>
+                    <form role="form" method="post">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" required class="form-control" name="name" placeholder="Name Catalog" value="<?php echo $qr->name ?>">
+                            <p class="help-block">Create Name Items</p>
+                        </div>
+                        <div class="form-group">
+                            <label>Desciprtion</label>
+                            <input type="text" required class="form-control" name="description" placeholder="Description Catalog" value="<?php echo $qr->description ?>">
+                            <p class="help-block">Create Description Items</p>
+                        </div>
+                        <div class="form-group">
+                            <label>Parent_id</label>
+                            <select required class="form-control" name="parent_id" id="">
+                                <option value="">-- Choose Parent_ID--</option>
+                                <?php for ($i = 0; $i < 4; $i++): ?>
+                                <option <?php echo ($i == $qr->parent_id) ? 'selected' : ''; ?> value="<?php echo $i ?>"><?php echo $i ?></option>
+                                <?php endfor; ?>
+                            </select>
+                        </div>
+                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-warning">Reset</button>
+                    </form>
+                    <?php endforeach; ?>
+                </div>
+
+            </div>
+            <!-- /.row (nested) -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+
+
+
+
