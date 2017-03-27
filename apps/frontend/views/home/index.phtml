@@ -1,1 +1,45 @@
-<h2 style="color:white">Lê Thanh Hải</h2>
+<div class="row" style="padding-top: 20px;">
+    <?php
+//        echo '<pre>';
+//        print_r($page->items);
+
+    foreach ($page->items as $val):
+    ?>
+    <div class="col-md-4 col-sm-6 col-xs-12" style="text-align: center; margin-bottom: 20px; ">
+        <a href="detail.phtml"><img style="width: 100%; height: 100%;" src="<?php echo PUBLIC_PATH ?>/images/movies/<?php echo $val->image; ?>" alt=""></a>
+        <h3 style="color:#C66B16; white-space:nowrap; overflow: hidden; text-overflow: ellipsis"><?php echo $val->name; ?></h3>
+        <p style="color:#fff; text-align: justify; height: 100px; overflow: hidden; text-overflow: clip">
+            <?php echo $val->description;?>
+        </p>
+        <a href="/multiple/home/detail?id=<?php echo $val->id ?>">Read More</a>
+    </div>
+
+    <?php endforeach; ?>
+    <nav aria-label="Page navigation" class="pull-right">
+        <ul class="pagination">
+            <li <?php echo ($page->current == 1) ? 'class="disabled"' : ''; ?>>
+                <a href="/multiple/home/index?page=1" aria-label="Previous">
+                    <span aria-hidden="true">First</span>
+                </a>
+            </li>
+            <li <?php echo ($page->current == 1) ? 'class="disabled"' : ''; ?>>
+                <a href="/multiple/home/index?page=<?= $page->before; ?>" aria-label="Previous">
+                    <span aria-hidden="true">Previous</span>
+                </a>
+            </li>
+
+            <li><a href="#"><?php echo "You are in page ", $page->current, " of ", $page->total_pages; ?></a></li>
+
+            <li <?php echo ($page->current == $page->total_pages) ? 'class="disabled"' : ''; ?>>
+                <a href="/multiple/home/index?page=<?= $page->next; ?>" aria-label="Next">
+                    <span aria-hidden="true">Next</span>
+                </a>
+            </li>
+            <li <?php echo ($page->current == $page->total_pages) ? 'class="disabled"' : ''; ?>>
+                <a href="/multiple/home/index?page=<?= $page->last; ?>" aria-label="Next">
+                    <span aria-hidden="true">Last</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

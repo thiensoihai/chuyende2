@@ -16,6 +16,7 @@ class CategoryController extends Controller
 {
     public function indexAction()
     {
+
         $this->view->title = "Dashboard Catalog";
         $numberPage = $this->request->getQuery("page", "int");
         if($numberPage < 1){
@@ -49,6 +50,7 @@ class CategoryController extends Controller
             if($this->request->getPost('name') == ''){
                 $this->flash->error("data not null");
             }
+            var_dump($cate->getMessages());
             if($cate->save()){
                 $this->flashSession->success("Category was created successfully");
                 return $this->response->redirect('../multiple/admin/category/index');

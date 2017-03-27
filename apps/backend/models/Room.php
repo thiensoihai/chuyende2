@@ -1,6 +1,8 @@
 <?php
 
-class Room extends \Phalcon\Mvc\Model
+namespace Multiple\Backend\Models;
+use Phalcon\Mvc\Model;
+class Room extends Model
 {
 
     /**

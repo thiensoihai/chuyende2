@@ -8,7 +8,6 @@ use Multiple\Backend\Models\Movie as Movie;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 use Multiple\Backend\Models\Category as Category;
 use Multiple\Backend\Models\MovieDescription as MovieDescription;
-use Phalcon\Http\Request\File;
 class MovieController extends Controller
 {
     public function indexAction()

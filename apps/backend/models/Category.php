@@ -2,6 +2,7 @@
 
 namespace Multiple\Backend\Models;
 use Phalcon\Mvc\Model;
+use Phalcon\Mvc\Model\Relation;
 use Multiple\Backend\Models\BaseModel as Base;
 class Category extends Base
 {
@@ -18,6 +19,7 @@ class Category extends Base
     /**
      * This model is mapped to the table sample_cars
      */
+
     public function getSource()
     {
         return "category";
@@ -28,6 +30,15 @@ class Category extends Base
      */
     public function initialize()
     {
-        //$this->belongsTo("brand_id", "Brands", "id");
+        $this->hasMany(
+            "id",
+            "Movie",
+            "category_id",
+            [
+                "foreignKey" => [
+                    "action" => Relation::ACTION_CASCADE,
+                ]
+            ]
+        );
     }
 }

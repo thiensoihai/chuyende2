@@ -66,7 +66,8 @@ class Module implements ModuleDefinitionInterface
                     "host" => "localhost",
                     "username" => "root",
                     "password" => "",
-                    "dbname" => "movieweb"
+                    "dbname" => "movieweb",
+                    'charset'   =>'utf8'
                 ]
             );
         });

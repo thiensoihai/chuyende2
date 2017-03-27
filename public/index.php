@@ -5,6 +5,7 @@ define("PUBLIC_PATH", '/multiple/public');
 define('BASE_PATH', __DIR__ );
 use Phalcon\Loader;
 use Phalcon\Mvc\Router;
+use Phalcon\Mvc\Model\Manager as ModelsManager;
 use Phalcon\DI\FactoryDefault;
 use Phalcon\Mvc\Application as BaseApplication;
 
@@ -28,6 +29,12 @@ class Application extends BaseApplication
             ->register();
 
         // Registering a router
+        $di->set(
+            "modelsManager",
+            function() {
+                return new ModelsManager();
+            }
+        );
         $di->set('router', function () {
 
             $router = new Router();
@@ -75,6 +82,7 @@ class Application extends BaseApplication
 
             return $router;
         });
+
 
         $di->set('session', function() {
            $session = new Phalcon\Session\Adapter\Files(['lifetime'=>10, 'cookie_lifetime' => 10]);

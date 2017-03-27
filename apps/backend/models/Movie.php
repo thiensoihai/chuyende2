@@ -1,6 +1,7 @@
 <?php
 
 namespace Multiple\Backend\Models;
+
 class Movie extends \Phalcon\Mvc\Model
 {
 
@@ -46,6 +47,8 @@ class Movie extends \Phalcon\Mvc\Model
      *
      * @return string
      */
+
+
     public function getSource()
     {
         return 'movie';

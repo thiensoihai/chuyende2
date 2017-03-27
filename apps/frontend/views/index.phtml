@@ -7,19 +7,30 @@
     <link rel="stylesheet" href="<?php echo PUBLIC_PATH; ?>/css/style.css" type="text/css">
     <link rel="stylesheet" href="<?php echo PUBLIC_PATH; ?>/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo PUBLIC_PATH; ?>/vendor/">
+    <link href="/multiple/public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <style>
+        p{
+            color:#fff;
+
+        }
+        h2,h3,h4,h5,h6{
+            color:#C66B16; white-space:nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        span{
+            color:#cb2027;
+        }
+    </style>
 </head>
 <body>
 <div id="header">
     <?php require_once 'header.phtml';   ?>
 </div>
-<div id="body" class="home">
-    <div>
-        <?php echo $this->getContent(); ?>
-    </div>
-
+<div class="container">
+    <?php echo $this->getContent(); ?>
 </div>
 <div id="footer">
 <?php require_once 'footer.phtml'; ?>
 </div>
+<script src="/multiple/public/vendor/jquery/jquery.min.js"></script>
 </body>
 </html>
